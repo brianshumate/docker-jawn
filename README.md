@@ -12,6 +12,7 @@ It is a collection of Dockerfiles for various applications, and so far
 contains the following:
 
 * lynx
+* rainbowstream
 
 ## THANKS
 
