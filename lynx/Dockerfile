@@ -8,3 +8,6 @@ RUN apt-get update && apt-get install -y \
 ADD lynx.lss /etc/lynx-cur/
 
 ENTRYPOINT [ "lynx" ]
+
+# Example run
+# docker run -it --name lynx brianshumate/lynx
