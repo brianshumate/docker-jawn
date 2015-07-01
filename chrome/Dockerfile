@@ -33,8 +33,9 @@ COPY local.conf /etc/fonts/local.conf
 
 # Autorun chrome
 ENTRYPOINT [ "/usr/bin/google-chrome" ]
-CMD [ "--user-data-dir=$HOME/data", "--no-sandbox" ]
+CMD [ "--user-data-dir=$HOME/data" ]
+#CMD [ "--user-data-dir=$HOME/data", "--no-sandbox" ]
 
 # example
-# docker run -it --net host --cpuset 0 --memory 2048 -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -v $HOME/incoming:/root/Downloads -v $HOME/.config/google-chrome/:/data --device /dev/snd --name chrome brianshumate/chrome
+# docker run -it --net host --cpuset 0 --memory 2048mb -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY -v $HOME/incoming:/root/Downloads -v $HOME/.config/google-chrome/:/data --device /dev/snd --name chrome brianshumate/chrome
 
