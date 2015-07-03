@@ -1,0 +1,3 @@
+# socat hack to listen for X connections in XQuartz
+
+socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
