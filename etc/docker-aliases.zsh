@@ -1,6 +1,6 @@
 # Docker Aliases
 
-alias dochromium='docker run -it --net host --cpuset-cpus 0 --memory 2048mb -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$MYDISPLAY -v $HOME/incoming:/root/Downloads -v $HOME/.config/google-chrome/:/data --name chrome brianshumate/chromium'
+alias dochromium='docker run -it --net host --cpuset-cpus 0 --memory 2048mb -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$MYDISPLAY -v $HOME/incoming:/root/Downloads -v $HOME/.config/google-chrome/:/data --name chromium brianshumate/chromium'
 alias dochrome='docker run -it --net host --cpuset-cpus 0 --memory 2048mb -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$MYDISPLAY -v $HOME/incoming:/root/Downloads -v $HOME/.config/google-chrome/:/data --name chrome brianshumate/chrome'
 alias dolynx='docker run -it --name lynx brianshumate/lynx'
 alias dorainbowstream='docker run -it -v $HOME/.rainbow_oauth:/root/.rainbow_oauth -v $HOME/.rainbow_config.json:/root/.rainbow_config.json --name rainbowstream brianshumate/rainbowstream'
