@@ -1,3 +1,5 @@
+# VERSION: 1.0.4
+
 FROM python:latest
 MAINTAINER Brian Shumate <brian@brianshumate.com>
 
@@ -13,6 +15,3 @@ RUN apt-get update && apt-get install -y \
 RUN pip install rainbowstream
 
 ENTRYPOINT [ "rainbowstream" ]
-
-# Example run
-# docker run -it -v $HOME/.rainbow_oauth:/root/.rainbow_oauth -v $HOME/.rainbow_config.json:/root/.rainbow_config.json --name rainbowstream brianshumate/rainbowstream
