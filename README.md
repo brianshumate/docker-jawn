@@ -53,10 +53,10 @@ docker run -it --net host -v /tmp/.X11-unix:/tmp/.X11-unix \
 ```
 
 The IP address for `MYDISPLAY` can be determined by inspecting the `vboxnet0`
-interface:
+interface used by `boot2docker`:
 
 ```
-ifconfig vboxnet0 | grep 'inet' | cut -d ' ' -f2
+boot2docker ip
 ```
 
 ## THANKS
