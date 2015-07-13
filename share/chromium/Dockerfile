@@ -1,4 +1,4 @@
-# VERSION: 1.0.0
+# VERSION: 1.0.1
 
 FROM debian:sid
 MAINTAINER Brian Shumate <brian@brianshumate.com>
@@ -19,4 +19,4 @@ RUN sed -i.bak 's/sid main/sid main contrib non-free/g' /etc/apt/sources.list &&
 COPY etc/local.conf /etc/fonts/local.conf
 
 ENTRYPOINT [ "/usr/bin/chromium" ]
-CMD [ "--user-data-dir=/data", "--no-sandbox" ]
+CMD [ "-–incognito", "--user-data-dir=/data" ]

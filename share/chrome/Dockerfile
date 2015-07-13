@@ -36,4 +36,4 @@ COPY etc/local.conf /etc/fonts/local.conf
 
 # Autorun chrome
 ENTRYPOINT [ "/usr/bin/google-chrome" ]
-CMD [ "--user-data-dir=/data", "--no-sandbox" ]
+CMD [ "--user-data-dir=/data", "--no-sandbox", "–incognito" ]
