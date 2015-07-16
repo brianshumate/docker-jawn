@@ -1,10 +1,11 @@
-# VERSION: 1.0.1
+# VERSION: 1.0.2
 
 FROM debian:jessie
 MAINTAINER Brian Shumate <brian@brianshumate.com>
 
 # Install xevil
-RUN apt-get update && apt-get install -y xevil
+RUN apt-get update && \
+    apt-get install -y xevil
 
 # Autorun
 ENTRYPOINT [ "/usr/games/xevil" ]
