@@ -11,11 +11,15 @@
 **Docker Jawn** is my experimental Dockerfile collection for various 
 applications so far, it contains support for the following:
 
+* Chrome
 * Chromium
+* Firefox
 * lynx
 * rainbowstream
 * wing
+* xeji
 * xevil
+* xpdf
 * xteddy
 
 Examples of each Dockerfile can be found in the `share` directory, with
@@ -23,12 +27,8 @@ supporting bits located in `bin` and `etc`.
 
 ## Mac OS X and boot2docker
 
-There is a hack to facilitate using X11 applications on Mac OS X with 
+There is a hack to use X11 applications on Mac OS X with 
 [boot2docker](http://boot2docker.io/) and XQuartz.
-
-*NOTE*: Using `socat` this way on public networks is insecure; you can enhance
-the security of this solution with `bind`, `su`, and `range` options. See
-`man socat` for details.
 
 First, use Homebrew to install the prerequisites and open XQuartz:
 
@@ -38,13 +38,25 @@ brew cask install xquartz
 open -a XQuartz
 ```
 
-In an XQuartz terminal, use `socat` to listen for X connections like this:
+In a terminal (either XQuartz `xterm` or Terminal.app), use `socat` to 
+listen for X11 connections like this:
 
 ```
 socat TCP-LISTEN:6000,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
 ```
 
-In a second XQuartz terminal, run your X11 based Dockerized application:
+*NOTE*: Using `socat` this way on public networks is insecure; you can enhance
+the security of this solution with `bind`, `su`, and `range` options. See
+`man socat` for details.
+
+You can at least limit connections to the VirtualBox interfaces for 
+boot2docker by using the `range` option like this: 
+
+```
+socat TCP-LISTEN:6000,range=192.168.59.0/24,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
+```
+
+In a second terminal, run your X11 based Dockerized application:
 
 ```
 export MYDISPLAY=192.168.59.3:0
@@ -58,6 +70,9 @@ interface:
 ```
 ifconfig vboxnet0 | grep 'inet' | cut -d ' ' -f2
 ```
+
+> **NOTE**: If you have the OS X firewall configured to block all incoming
+> connections, this technique will not work.
 
 ## THANKS
 
