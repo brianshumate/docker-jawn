@@ -8,8 +8,8 @@
 
 # What?
 
-**Docker Jawn** is my experimental Dockerfile collection for various 
-applications so far, it contains support for the following:
+**Docker Jawn** is my experimental Dockerfile collection for a variety of 
+applications; so far, it contains support for the following:
 
 * Chrome
 * Chromium
@@ -22,23 +22,23 @@ applications so far, it contains support for the following:
 * xpdf
 * xteddy
 
-Examples of each Dockerfile can be found in the `share` directory, with
-supporting bits located in `bin` and `etc`.
+Examples of each Dockerfile are in the `share` directory, with supporting bits
+located in `bin` and `etc`.
 
-## Mac OS X and boot2docker
+## Mac OS X and Docker Machine
 
 There is a hack to use X11 applications on Mac OS X with 
-[boot2docker](http://boot2docker.io/) and XQuartz.
+[Docker Machine](https://docs.docker.com/machine/) and XQuartz.
 
 First, use Homebrew to install the prerequisites and open XQuartz:
 
 ```
-brew install socat
+brew install docker docker-machine socat
 brew cask install xquartz
 open -a XQuartz
 ```
 
-In a terminal (either XQuartz `xterm` or Terminal.app), use `socat` to 
+In a terminal (either an XQuartz `xterm` or Terminal.app), use `socat` to 
 listen for X11 connections like this:
 
 ```
@@ -50,7 +50,7 @@ the security of this solution with `bind`, `su`, and `range` options. See
 `man socat` for details.
 
 You can at least limit connections to the VirtualBox interfaces for 
-boot2docker by using the `range` option like this: 
+Docker Machine by using the `range` option like this: 
 
 ```
 socat TCP-LISTEN:6000,range=192.168.59.0/24,reuseaddr,fork UNIX-CLIENT:\"$DISPLAY\"
@@ -64,7 +64,7 @@ docker run -it --net host -v /tmp/.X11-unix:/tmp/.X11-unix \
 -e DISPLAY=$MYDISPLAY --name xteddy brianshumate/xteddy
 ```
 
-The IP address for `MYDISPLAY` can be determined by inspecting the `vboxnet0`
+You can determin the IP address for `MYDISPLAY` by inspecting the `vboxnet0`
 interface:
 
 ```
