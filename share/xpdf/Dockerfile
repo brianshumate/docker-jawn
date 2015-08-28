@@ -1,6 +1,6 @@
-# VERSION: 1.0.2
+# VERSION: 1.0.3
 
-FROM debian:jessie
+FROM debian:wheezy
 MAINTAINER Brian Shumate <brian@brianshumate.com>
 
 RUN apt-get update && \
@@ -11,4 +11,3 @@ RUN apt-get update && \
 COPY etc/local.conf /etc/fonts/local.conf
 
 ENTRYPOINT [ "/usr/bin/xpdf" ]
-#CMD [ "-–incognito", "--user-data-dir=/data" ]
