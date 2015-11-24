@@ -1,4 +1,4 @@
-# VERSION: 1.0.3
+# VERSION: 1.0.4
 
 FROM debian:sid
 MAINTAINER Brian Shumate <brian@brianshumate.com>
@@ -10,6 +10,7 @@ RUN mkdir -p /usr/share/icons/hicolor && \
     apt-get update && apt-get install -y \
     ca-certificates \
     fontconfig-config \
+    fonts-liberation \
     gconf-service \
     hicolor-icon-theme \
     libappindicator1 \
