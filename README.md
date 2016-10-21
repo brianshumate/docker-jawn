@@ -64,7 +64,7 @@ docker run -it --net host -v /tmp/.X11-unix:/tmp/.X11-unix \
 -e DISPLAY=$MYDISPLAY --name xteddy brianshumate/xteddy
 ```
 
-You can determin the IP address for `MYDISPLAY` by inspecting the `vboxnet0`
+You can determine the IP address for `MYDISPLAY` by inspecting the `vboxnet0`
 interface:
 
 ```
